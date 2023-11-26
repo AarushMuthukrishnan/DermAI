@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        #user-details {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        #user-details p {
+            font-size: 1.2em;
+            line-height: 1.6em;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        #user-details img {
+            max-width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.2);
+        }
+        .material-icons {
+            font-size: 30px;
+        }
+        .back-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .back-icon:hover {
+            transform: scale(1.1);
+        }
+        .back-icon i {
+            font-size: 24px;
+        }
+        .back-icon:hover i {
+            color: #555;
+        }    
+        #logout-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFC107;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #logout-button:hover {
+            background-color: #555;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="back-icon">
+        <!-- Link to the index page -->
+        <a href="/chat.html">
+            <!-- Back arrow icon -->
+            <div id="arrow">
+                <i class="material-icons">arrow_back</i>
+            </div>
+        </a>
+    </div>
+    <div id="user-details">
+        <!-- User profile details -->
+    </div>
+    <button id="logout-button">Logout</button>
+    <script>
+        //Go To Google Firebase configuration and paste your web app's Firebase configuration here
+        var firebaseConfig = {  
+            apiKey: "AIzaSyB5tv9J2mtacfcK3x5Q1SZVIsfX5CFPwMs",
+            authDomain: "pellis-f07a0.firebaseapp.com",
+            projectId: "pellis-f07a0",
+            storageBucket: "pellis-f07a0.appspot.com",
+            messagingSenderId: "331648722251",
+            appId: "1:331648722251:web:3ff1d3024e7c9ad86274ce",
+            measurementId: "G-EQCCKP8RC1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in, display user details
+                var userDetails = document.getElementById('user-details');
+                userDetails.innerHTML = `
+                    <p>Name: ${user.displayName}</p>
+                    <br>
+                    <p>Email: ${user.email}</p>
+                    <p><img src="${user.photoURL}" alt="Profile Picture"></p>
+                `;
+            } else {
+                // No user is signed in, redirect to login page
+                window.location.href = '/login.html';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logout button click event listener
+            document.getElementById('logout-button').addEventListener('click', function() {
+                // Sign out the user
+                firebase.auth().signOut().then(function() {
+                    // Redirect to the login page
+                    window.location.href = '/login.html';
+                }).catch(function(error) {
+                    console.log(error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

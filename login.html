@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style> 
+        body {
+            background-image: url('login_background.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        #welcome-text {
+            color: #333;
+            font-size: 2em; 
+        }
+        
+        #login {
+            background-color: #1e4e9b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #login {
+            margin-top: 20px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        
+        #login:hover {
+            background-color: #555;
+        }
+  
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 20px;
+        }
+        .conversation-container {
+            flex-grow: 1;
+            margin-left: 40px;
+        }
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: 400px; 
+            max-width: 500px;
+            margin: 0 auto; 
+        }
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 18px;
+            color: #666;
+        }
+        .login-button {
+            display: block;
+            width: 80%; 
+            padding: 16px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px;
+            position: relative; 
+            margin: 0 auto; 
+        }
+        .login-button img {
+            position: absolute; 
+            right: 10px; 
+            top: 50%; 
+            transform: translateY(-50%); 
+        }
+        .login-button:hover {
+            background-color: #3367d6;
+        }
+        .conversation-container {
+            max-width: 800px;
+        }
+        .message-container {
+            margin-top: 30px;
+        }
+        .message {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px; 
+        }
+        .message .profile-picture {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .message .text {
+            flex-grow: 1;
+            max-width: 300px;
+        }
+        .message .text p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .user-typing-animation::after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            width: 14px;
+            height: 28px;
+            background-color: #000;
+            animation: typing 0.7s infinite;
+        }
+        @keyframes typing {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .login-button {
+            display: block;
+            width: 70%; 
+            padding: 16px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px;
+            position: relative; 
+            margin: 0 auto; 
+        }
+        .top-center-section {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .top-right-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .beta-label {
+            background-color: #4285f4;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 12px;
+            margin-right: -100px;
+        }
+        .login-button-right {
+            display: block;
+            width: 150px;
+            padding: 8px 14px;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: -10px;
+            margin-right: -500;
+        }
+
+        .login-button-right:hover {
+            background-color: #3367d6;
+        }
+        .faq-link {
+            font-size: 23px;
+            font-weight: bold;
+            margin-right: 20px;
+            margin-top: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+</head>
+<body>
+    <div class="top-center-section" style="position: relative; bottom: 48%;">
+        <h1 class="logo">DermAI</h1>
+        <div class="beta-label">Beta</div>
+    </div>
+    <div class="top-right-section">
+        <a class="faq-link" href="faq.html">FAQ</a>
+        <button class="login-button-right" id="login-right">Sign in</button>
+    </div>
+    <div class="login-container">
+        <div class="welcome-section">
+            <h1>DermAI</h1>
+            <p class="description">An AI Powered Chatbot for Skin Cancer</p>
+        </div>
+        <button class="login-button" id="login">Sign in with Google 
+            <img src="google_logo.png" width="20px">
+        </button>
+    </div>
+    <div class="container">
+        <div class="conversation-container">
+            <div class="message-container">
+                <div class="message" id="user-message">
+                    <img class="profile-picture" src="profile_picture.png" alt="User Profile Picture">
+                    <div class="text">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="message" id="bot-message">
+                    <img class="profile-picture" src="dermai_icon.png" alt="Bot Profile Picture">
+                    <div class="text">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="position: relative; top: 48%;">
+        &copy; 2023 Aarush Muthukrishnan. All rights reserved.
+    </footer>
+    <script>
+        const userMessage = document.getElementById("user-message").querySelector("p");
+        const botMessage = document.getElementById("bot-message").querySelector("p");
+        const messages = [
+            { user: "What is skin cancer?", bot: "Skin cancer is the out-of-control growth of abnormal cells in the epidermis, the outermost skin layer..." },
+            { user: "What causes skin cancer?", bot: "The two main causes of skin cancer are the sun's harmful ultraviolet (UV) rays and using UV tanning beds. If skin cancer is caught early, it can..." },
+            { user: "What does skin cancer look like?", bot: "Skin cancers can look quite different from one person to another due to..."}
+        ];
+        let currentIndex = 0;
+        function typeMessage(element, message, isUser) {
+            let i = 0;
+            const typingSpeed = 75; // Adjust typing speed here
+            element.innerHTML = ""; // Clear previous message before typing new one
+            function type() {
+                if (i < message.length) {
+                    element.innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(type, typingSpeed);
+                } else if (currentIndex === messages.length - 1) {
+                    setTimeout(() => {
+                        userMessage.innerHTML = "";
+                        botMessage.innerHTML = "";
+                        currentIndex = 0;
+                        setTimeout(animateMessages, 0); // Adjust delay before repeating animation here
+                    }, 5000);
+                } else {
+                    setTimeout(animateMessages, 5000); // Adjust delay between cycles here
+                }
+            }
+            if (isUser) {
+                element.classList.add("user-typing-animation");
+            }
+            type();
+        }
+        function animateMessages() {
+            userMessage.innerHTML = "";
+            botMessage.innerHTML = "";
+            typeMessage(userMessage, messages[currentIndex].user, true);
+            setTimeout(() => {
+                userMessage.classList.remove("user-typing-animation");
+                botMessage.innerHTML = messages[currentIndex].bot;
+                currentIndex++;
+                if (currentIndex >= messages.length) {
+                currentIndex = 0; 
+                }
+            }, 3000);
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            animateMessages();
+        });
+        //Go To Google Firebase configuration and paste your web app's Firebase configuration here
+        var firebaseConfig = {  
+            apiKey: "AIzaSyB5tv9J2mtacfcK3x5Q1SZVIsfX5CFPwMs",
+            authDomain: "pellis-f07a0.firebaseapp.com",
+            projectId: "pellis-f07a0",
+            storageBucket: "pellis-f07a0.appspot.com",
+            messagingSenderId: "331648722251",
+            appId: "1:331648722251:web:3ff1d3024e7c9ad86274ce",
+            measurementId: "G-EQCCKP8RC1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        // Handle user authentication state changes
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // Redirect to chat page if user is authenticated
+                window.location.href = '/chat.html';
+            } else {
+                // Handle login button click
+                document.getElementById('login').addEventListener('click', function () {
+                    var provider = new firebase.auth.GoogleAuthProvider();
+                    firebase.auth().signInWithPopup(provider).then(function (result) {
+                        // Handle successful login
+                        var token = result.credential.accessToken;
+                        var user = result.user;
+                        console.log(token, user);
+                        window.location.href = "/chat.html";
+                    }).catch(function (error) {
+                        // Handle login error
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(errorCode, errorMessage);
+                    });
+                });
+                    
+                document.getElementById('login-right').addEventListener('click', function () {
+                    var provider = new firebase.auth.GoogleAuthProvider();
+                    firebase.auth().signInWithPopup(provider).then(function (result) {
+                        var token = result.credential.accessToken;
+                        var user = result.user;
+                        console.log(token, user);
+                        window.location.href = "/chat.html";
+                    }).catch(function (error) {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(errorCode, errorMessage);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
