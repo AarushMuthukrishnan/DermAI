@@ -26,7 +26,7 @@ The default language for the app and the conversation below is English, unless a
 6. Choose the project that has the name as your Firebase project.
 7. Go to DialogflowCX and choose your Google Cloud/Firebase project.
 8. Create a new Dialogflow CX agent and publish it with the side panel option.
-9. Follow the instructions on [index.html](#index.html), [chat.html](#chat.html), and [account.html](#account.html) to add your Firebase/DialogflowCX credidentials.
+9. Follow the instructions on [index.html](https://github.com/AarushMuthukrishnan/DermAI/blob/main/www/index.html), [chat.html](#chat.html), and [account.html](#account.html) to add your Firebase/DialogflowCX credidentials.
 
 ## Usage
 1. Ensure that all the setup steps above have been followed and all the files have the correct name and are in the same directory
